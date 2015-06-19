@@ -78,10 +78,16 @@ def main():
 
         split = lambda x: x.splitlines()
         for o,b,i in zip(*list(map(split, (offsets, bytes, instrs)))):
+            if context.arch in ('i386','amd64'):
+                i = i.replace(',',', ')
+            else:
+                b = ' '.join(group(2, b.strip()))
+                b = b.ljust(24)
+
             b = b.replace('00', text.red('00'))
             b = b.replace('0a', text.red('0a'))
+
             i = highlight(i.strip(), PwntoolsLexer(), TerminalFormatter()).strip()
-            i = i.replace(',',', ')
 
             print o,b,i
         return
