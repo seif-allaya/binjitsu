@@ -84,7 +84,7 @@ Example:
       if arg == None:
           args.append('?')
       else:
-          args.append(repr(arg))
+          args.append(str(arg))
   while args and args[-1] == '?':
       args.pop()
   syscall_repr = syscall_repr % ', '.join(args)
