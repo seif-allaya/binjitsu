@@ -3,7 +3,7 @@
 # Based on Ubuntu
 ############################################################
 
-FROM ubuntu
+FROM ubuntu:22.10
 MAINTAINER Maintainer Zach Riggle
 
 RUN apt-get update && apt-get install -y software-properties-common
